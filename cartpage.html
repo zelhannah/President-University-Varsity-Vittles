@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shopping Cart</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f3f3f3;
+    }
+    header {
+        background-color: #f8b90b;
+        color: #fff;
+        padding: 20px 0;
+    }
+    .bottom {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    }
+    .link {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+    .link:hover {
+        color: #000;
+    }
+    .product {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 20px;
+        padding: 20px;
+        width: 30%;
+        display: inline-block;
+    }
+    .product h2 {
+        margin: 0;
+        color: #333;
+    }
+    .product p {
+        margin: 10px 0;
+        color: #666;
+    }
+    .product button {
+        background-color: #f8b90b;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .product button:hover {
+        background-color: #e2a300;
+    }
+    .cart {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        padding: 20px;
+        width: 60%;
+        text-align: center;
+    }
+    .cart h2 {
+        margin: 0;
+        color: #333;
+    }
+    .cart-item {
+        margin-bottom: 10px;
+        color: #666;
+    }
+    .cart-item:last-child {
+        margin-bottom: 0;
+    }
+    .total {
+        margin-top: 20px;
+        color: #333;
+    }
+    .checkout-btn {
+        background-color: #4CAF50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    .checkout-btn:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+
+
+<header>
+    <div class="bottom">
+        <a href="loginprofil.html" class="link">HOME</a>
+        <a href="categoriespage.html" class="link">CATEGORIES</a>
+        <a href="storepage.html" class="link">STORE</a>
+        <a href="cartpage.html" class="link">CART</a>
+        <a href="paymentpage.html" class="link">PAYMENT</a>
+        <a href="history.html" class="link">HISTORY</a>
+        <a href="statusbooking.html">STATUS</a></li>
+    </div>
+</header>
+
+
+<div class="product" id="product1">
+    <h2>Ayam Geprek</h2>
+    <p>Rp 15.000</p>
+    <button onclick="addToCart('Ayam Geprek', 15000)">Add to Cart</button>
+</div>
+
+
+<div class="product" id="product2">
+    <h2>Nasi Padang</h2>
+    <p>Rp 25.000</p>
+    <button onclick="addToCart('Nasi Padang', 25000)">Add to Cart</button>
+</div>
+
+
+<div class="product" id="product3">
+    <h2>Nasi Rames</h2>
+    <p>Rp 10.000</p>
+    <button onclick="addToCart('Nasi Rames', 10000)">Add to Cart</button>
+</div>
+
+
+<div class="product" id="product4">
+    <h2>Mie Ayam</h2>
+    <p>Rp 17.000</p>
+    <button onclick="addToCart('Mie Ayam', 17000)">Add to Cart</button>
+</div>
+
+
+<div class="product" id="product5">
+    <h2>Salad</h2>
+    <p>Rp 13.000</p>
+    <button onclick="addToCart('Salad Buah', 13000)">Add to Cart</button>
+</div>
+
+
+<div class="product" id="product6">
+    <h2>Esteh Manis</h2>
+    <p>Rp 5.000</p>
+    <button onclick="addToCart('Esteh Manis', 5000)">Add to Cart</button>
+</div>
+
+
+<div class="cart">
+    <h2>Shopping Cart</h2>
+    <div id="cartAlert"></div>
+    <div id="cartItems"></div>
+    <h3 class="total">Total: Rp <span id="totalPrice">0</span></h3>
+    <button class="checkout-btn" onclick="checkout()">Checkout</button>
+</div>
+
+
+<script>
+    let cart = [];
+    let total = 0;
+
+
+    function addToCart(productName, price) {
+        cart.push({ name: productName, price: price });
+        updateCart();
+    }
+
+
+    function updateCart() {
+        let cartItemsElement = document.getElementById("cartItems");
+        cartItemsElement.innerHTML = "";
+        total = 0;
+
+
+        cart.forEach(item => {
+            let cartItemElement = document.createElement("div");
+            cartItemElement.classList.add("cart-item");
+            cartItemElement.textContent = item.name + " - Rp " + item.price.toLocaleString();
+            cartItemsElement.appendChild(cartItemElement);
+            total += item.price;
+        });
+
+
+        document.getElementById("totalPrice").textContent = total.toLocaleString();
+    }
+
+
+    function checkout() {
+        if (cart.length === 0) {
+            document.getElementById("cartAlert").innerHTML = "<div style='color: red;'>Your cart is empty! Please add items before checkout.</div>";
+        } else {
+            setTimeout(function(){
+                window.location.href = "thankyou.html";
+            }, 1000);
+        }
+    }
+</script>
+
+
+</body>
+</html>

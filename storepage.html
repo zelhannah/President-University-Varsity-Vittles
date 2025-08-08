@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>President University Varsity Vittles</title>
+    <style>
+        /* Reset styles */
+        body, h1, h2, h3, p, button {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Fonts */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffc402;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #070707;
+            color: #f8b90b;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: #d89803;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        nav a:hover {
+            background-color: #423411;
+        }
+
+        /* Container Styles */
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        /* Product Styles */
+        .product {
+            width: calc(33.33% - 20px); /* One-third width with margin */
+            margin-bottom: 40px; /* Increased bottom margin */
+            background-color: #fff;
+            border-radius: 20px; /* Increased border radius */
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition for box-shadow */
+        }
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2); /* Enhanced box shadow on hover */
+        }
+        .product img {
+            width: 400px;
+            height: 200px;
+        }
+        .product-content {
+            justify-content: center;
+        }
+        .product h3 {
+            font-size: 30px; /* Increased font size */
+            margin: 10px 10px 10px 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Added text shadow */
+        }
+        .product p {
+            font-size: 15px; /* Increased font size */
+            color: #555; /* Darkened text color */
+            margin: 10px 10px 10px 10px; /* Increased bottom margin */
+        }
+        .product .btn {
+            display: block; /* Ensure button takes full width */
+            width: 100%;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 15px 0; /* Adjusted padding */
+            border: none;
+            border-radius: 0 0 20px 20px; /* Adjusted border radius */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 1.1em; /* Increased font size */
+        }
+        .product .btn:hover {
+            background-color: #45a049;
+        }
+        /* Footer Styles */
+        footer {
+            background-color: #070707;
+            color: #f8b90b;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>President University Varsity Vittles</h1>
+</header>
+
+<nav>
+    <a href="loginprofil.html" class="link">HOME</a>
+    <a href="categoriespage.html" class="link">CATEGORIES</a>
+    <a href="storepage.html" class="link">STORE</a>
+    <!-- <a href="cartpage.html" class="link">CART</a> -->
+    <a href="paymentpage.html" class="link">PAYMENT</a>
+    <a href="history.html" class="link">HISTORY</a>
+    <a href="statusbooking.html">STATUS</a>
+</nav>
+
+<div class="container">
+    <div class="product">
+        <img src="https://i2.wp.com/www.nothingfamiliar.com/wp-content/uploads/2019/02/Warung-Bali.jpg?resize=801%2C534" alt="Product" >
+        <div class="product-content">
+            <h3>Lywen Store</h3>
+            <p>Warteg Lengkap</p>
+            <a href="lywenstore.html"><button class="btn">Open stall</button></a>
+        </div>
+    </div>
+    <div class="product">
+        <img src="https://2.bp.blogspot.com/-4JMuPOH2zPM/WbOpNMCsppI/AAAAAAAAFis/Um6xM5lcMdIE8DvqAjxxfK7dxgfl8zrwgCLcBGAs/s1600/7%2Bcopy.jpg" alt="Product">
+        <h3>Joy Store</h3>
+        <p>Aneka Masakan Padang</p>
+        <a href="joystore.html"><button class="btn">Open stall</button></a>
+    </div>
+    <div class="product">
+        <img src="https://tse4.mm.bing.net/th?id=OIP.u8QCUPmDSdmrlhbfmMxQAAHaDt&pid=Api&P=0&h=220" alt="Product">
+        <h3>Clan Store</h3>
+        <p>Siap sedia</p>
+        <button class="btn">Open stall</button>
+    </div>
+    <div class="product">
+        <img src="https://s2.bukalapak.com/img/7542259522/w-1000/SALAD_BUAH_UKURAN_650ML.jpg" alt="Product">
+        <h3>Azel Store</h3>
+        <p>Healty Food</p>
+        <button class="btn">Open stall</button>
+    </div>
+    <div class="product">
+        <img src="http://rumahmesin.com/wp-content/uploads/2016/04/mie-ayam-lezat.jpeg" alt="Product">
+        <h3>Warmindo</h3>
+        <p>Semua macam mie ada disini</p>
+        <button class="btn">Open stall</button>
+    </div>
+    <div class="product">
+        <img src="https://i0.wp.com/i.gojekapi.com/darkroom/gofood-indonesia/v2/images/uploads/64d036c2-2eaf-4a10-b6d9-6c46e8f9c48c_Go-Biz_20230209_104329.jpeg" alt="Product">
+        <h3>We Drink</h3>
+        <p>Murah meriah</p>
+        <button class="btn">Open stall</button>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 President University Varsity Vittles. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

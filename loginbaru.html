@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PresUniverse</title>
+    <link rel="stylesheet" href="styled.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
+    <style>
+        
+       .register-link p a:hover{
+        text-decoration: underline;
+        
+    }
+
+    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+   
+}
+
+
+body {
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    min-height: 100vh; 
+    background: #4B0303;
+    background: url('bg2.jpg') no-repeat;
+    background-size: cover;
+    background-position: center ;
+}
+.wrapper{
+    width: 420px;
+    background:white;
+    border: 2px solid black;
+    backdrop-filter: blur(20px);
+    color: black;
+    border-radius: 10px;
+    padding: 30px 40px; 
+}
+
+
+.wrapper h1{
+    font-size: 36px;
+    text-emphasis: center; 
+}
+
+
+.wrapper .input-box{
+    position: relative; 
+    width: 100%;
+    height: 50px;
+
+margin: 30px 0; 
+}
+
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    font-size: 16px;
+    color: black; 
+    padding: 20px 45px 20px 20px;    
+    border: 2px solid black;
+    border-radius: 40px;
+}
+
+
+.input-box input::placeholder{
+color: black;
+}
+
+
+
+.input-box i{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+
+.wrapper .remember-forgot{
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+.remember-forgot label input{
+accent-color: white;
+margin-right: 2px;
+}
+.remember-forgot a{
+    color: black ;
+    text-decoration: none;
+}
+.remember-forgot a:hover{
+text-decoration: underline;
+}
+
+
+.wrapper button{
+    width: 100%;
+    height: 45px;
+    background: white; 
+    border: none;
+    border-radius: 40px; 
+    border: 2px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+   
+    color: #333;
+    font-weight: 600;
+}
+
+
+.wrapper .register-link{
+    font-size: 14.5px;
+    text-align: center;
+    margin: 20px 0 15px;
+}
+.register-link p a { 
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.show-password{
+    font-size: 10px;
+    display: inline-block;
+}
+
+span{
+    margin-left: 250px ;
+    font-family: "Poppins", sans-serif;
+    
+}
+span:hover{
+    text-decoration: underline;
+}
+.input-box.active {
+    border-color: #FFD700; /* Warna border kuning keemasan ivory saat aktif */
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.6); /* Efek bayangan kuning keemasan saat aktif */
+    border-radius: 40px;
+}
+
+.input-box.active i {
+    color: #FFD700; /* Warna ikon kuning keemasan saat aktif */
+}
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () { // This jQuery code ensures that the enclosed code block will run only after the entire HTML document has been fully loaded. 
+            $('.input-box input').focus(function () { //targets all input elements within elements with the class .input-box and attaches a function to the focus event. When an input field within .input-box is focused (clicked on or tabbed into), the function is executed.
+                $(this).parent().addClass('active');
+            });//Inside the focus function, it adds the CSS class active to the parent element of the focused input. The parent() function is used to select the immediate parent of the input element.
+    
+            $('.input-box input').blur(function () { //This line is similar to the previous one but is handling the blur event.
+                if ($(this).val() === '') { // Inside the blur function, this conditional statement checks if the value of the input field is empty. If it is, it removes the active class from the parent element. 
+                    $(this).parent().removeClass('active'); // Inside the blur function, it checks if the value of the input is empty. If it is, it removes the active class from the parent element
+                }   
+            });
+        });
+
+        $(document).ready(function () {
+        $('.show-password').click(function () { //selects all elements with the CSS class .show-password and adds a function to the click event
+            const passwordField = $(this).siblings('input'); //finds the input element that is a sibling (adjacent in the HTML structure) of the clicked element with the class .show-password. $(this)
+            const fieldType = passwordField.attr('type'); // retrieves the value of the type attribute from the selected input element.
+
+            if (fieldType === 'password') { // If the type is password, the code inside the if block will be executed; otherwise, the code inside the else block will be executed.
+                passwordField.attr('type', 'text'); //If the type is password, this line changes the input type to 'text', making the entered text visible.
+            } else {
+                passwordField.attr('type', 'password');//If the type is not password, this line changes the input type back to 'password', hiding the entered text.
+            }
+        });
+    });
+    </script>
+    
+</head>
+<body>
+    
+    <div class="wrapper">
+       
+        <form action="loginprofil.html"> 
+            <h1>Login</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Username"  pattern="[a-z, 0-9]{4,}" title="lowercase and minimum 4 characters" required>
+                <i class='bx bxs-user'></i> 
+            </div>
+
+
+            <div class="input-box">
+                <input type="password" placeholder="Password" required pattern="(?=.*[A-Z]).{8,}" title="At least 1 capital and 8 characters">
+                <i class='bx bxs-lock-alt'></i>
+                <span class="show-password"  style="cursor: pointer;" >show password</span>
+            </div>
+            
+
+
+            <div class="remember-forgot"> 
+                <label> <input type="checkbox">Remember me</label>
+                <a href="forgotpass.html">Forgot password?</a>
+            </div>
+
+
+            <a href="loginprofil.html"><button type="submit" class="button" style="font-size: 16px; ">Login</button></a> 
+           
+
+
+            <div class="register-link">
+                <p>Don't have an account? <a href="signup.html">Register</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+
+

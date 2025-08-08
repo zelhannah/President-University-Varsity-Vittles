@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Status Booking</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url(bg2.jpg);
+    }
+
+    table {
+        width: 99%;
+        border-collapse: collapse;
+        background-color: #f2f2f2;
+        margin: 0 auto; /* Menengahkan tabel */
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+
+    header {
+        background-color: #070707;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+        width: 100%; /* Menjadikan header full layar */
+    }
+
+    .nav-links {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: inline-block;
+    }
+
+    .nav-links li {
+        display: inline-block;
+        margin-right: 20px;
+        display: inline-block;
+    }
+
+    .nav-links li:last-child {
+        margin-right: 0;
+    }
+
+    .nav-links a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        color: #f8b90b;
+    }
+
+    h2 {
+        text-align: center;
+        margin: 40px 40px;
+        color: #fff;
+    }
+
+    .container {
+        margin-top: 50px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="loginprofil.html">HOME</a></li>
+                <li><a href="categoriespage.html">CATEGORIES</a></li>
+                <li><a href="storepage.html">STORE</a></li>
+                <li><a href="paymentpage.html">PAYMENT</a></li>
+                <li><a href="history.html">HISTORY</a></li>
+                <li><a href="statusbooking.html">STATUS</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <h2>Status Booking</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Queue</th>
+                <th>Product</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="salesTableBody"></tbody>
+    </table>
+
+    <script>
+        let sales = [
+            { queue: 1, product: "Nasi Padang", status: "In Progress" },
+            { queue: 2, product: "Nasi Ayam Geprek", status: "Completed" },
+            { queue: 3, product: "Mie Ayam", status: "Pending" }
+        ];
+
+        function displaySalesStatus() {
+            let salesTableBody = document.getElementById("salesTableBody");
+            salesTableBody.innerHTML = ""; // Clear previous content
+
+            sales.forEach(sale => {
+                let row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${sale.queue}</td>
+                    <td>${sale.product}</td>
+                    <td>${sale.status}</td>
+                    <td>
+                        <select onchange="updateSaleStatus(${sale.queue}, this.value)">
+                            <option value="In Progress">In Progress</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Pending">Pending</option>
+                        </select>
+                    </td>
+                `;
+                salesTableBody.appendChild(row);
+            });
+        }
+
+        function updateSaleStatus(queue, newStatus) {
+            const sale = sales.find(sale => sale.queue === queue);
+            if (sale) {
+                sale.status = newStatus;
+                displaySalesStatus(); // Update display after status change
+                if (newStatus === "Completed") {
+                    window.location.href = "history.html"; // Redirect to payment page
+                }
+            }
+        }
+
+        // Initial display of sales status
+        displaySalesStatus();
+    </script>
+</body>
+</html>

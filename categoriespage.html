@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Makanan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #070707;
+            line-height: 1.6;
+            background-image: url(bg2.jpg);
+        }
+
+        header {
+            background-color: #f8b90b;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #f8b90b;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        nav input[type="text"] {
+            padding: 8px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        nav select {
+            padding: 8px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            color: #f8b90b;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+        }
+
+        .category {
+            padding: 20px;
+            background-color: #fff;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .food-item {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .food-card {
+            background-color: #ffc402;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .food-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .food-card img {
+            width: 100%;
+            height: 200px; /* Set the height to make it square */
+            object-fit: cover; /* Maintain aspect ratio */
+            border-radius: 10px 10px 0 0;
+        }
+
+        .food-card h3 {
+            margin: 10px 0;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .food-card p {
+            margin: 0;
+            padding: 10px;
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .nav-links {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            display: inline-block;
+        }
+
+        .nav-links li {
+            display: inline-block;
+            margin-right: 20px;
+            display: inline-block;
+        }
+
+        .nav-links li:last-child {
+            margin-right: 0;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: black;
+        }
+
+        .main-content {
+            text-align: center;
+            padding: 120px 15px 60px;
+        }
+
+        .site-title {
+            margin: 0 0 10px;
+            font-size: 48px;
+            color: white;
+        }
+
+        .site-subtitle {
+            margin: 0 0 20px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .site-description {
+            margin-bottom: 40px;
+            font-size: 18px;
+            color: white;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ffc402;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ffc402;
+        }
+
+        footer {
+            background-color: #ffc402;
+            color: #070707;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+        .show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="loginprofil.html">HOME</a></li>
+                <li><a href="categoriespage.html">CATEGORIES</a></li>
+                <li><a href="storepage.html">STORE</a></li>
+                <!-- <li><a href="cartpage.html">CART</a></li> -->
+                <li><a href="paymentpage.html">PAYMENT</a></li>
+                <li><a href="history.html">HISTORY</a></li>
+                <li><a href="statusbooking.html">STATUS</a></li>
+            </ul>
+        </div>
+    </header>
+    <nav>
+        <input type="text" id="search" placeholder="Search...">
+        <select id="sort">
+            <option value="name">Name</option>
+            <option value="category">Categories</option>
+        </select>
+        <ul>
+            <li><a href="#all">All Item</a></li>
+            <li><a href="#snack">Snack</a></li>
+            <li><a href="#rice">Rice</a></li>
+            <li><a href="#noodles">Noodles</a></li>
+            <li><a href="#sidedish">Side dish</a></li>
+            <li><a href="#beverages">Beverages</a></li>
+            <li><a href="#healty">Healty Food</a></li>
+        </ul>
+    </nav>
+    <section id="all" class="category">
+        <h2>All Item</h2>
+        <div class="food-item"></div>
+    </section>
+    <section id="snack" class="category">
+        <h2>Snack</h2>
+        <div class="food-item"></div>
+    </section>
+    <section id="rice" class="category">
+        <h2>Rice</h2>
+        <div class="food-item"></div>
+    </section>
+    <section id="noodles" class="category">
+        <h2>Noodles</h2>
+        <div class="food-item"></div>
+    </section>
+    <section id="beverages" class="category">
+        <h2>Beverages</h2>
+        <div class="food-item"></div>
+    </section>
+    <section id="sidedish" class="category">
+        <h2>Side dish</h2>
+        <div class="food-item"></div>
+    </section>
+    <section id="healty" class="category">
+        <h2>Healty Food</h2>
+        <div class="food-item"></div>
+    </section>
+    <footer>
+        <p>© 2024 President University Varsity Vittles</p>
+    </footer>
+</body>
+</html>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+        const searchInput = document.getElementById('search');
+        const foodItems = document.querySelectorAll('.food-card');
+
+        searchInput.addEventListener('input', function (event) {
+            const searchText = event.target.value.trim().toLowerCase();
+
+            foodItems.forEach(function (item) {
+                const itemName = item.querySelector('h3').textContent.toLowerCase();
+                const itemCategory = item.parentNode.parentNode.id;
+
+                if (itemName.includes(searchText) || itemCategory.includes(searchText)) {
+                    item.parentNode.style.display = 'block';
+                } else {
+                    item.parentNode.style.display = 'none';
+                }
+            });
+        });
+
+            // Data makanan untuk ditampilkan
+            const foods = [
+                { name: 'Mie Goreng', category: 'noodles', 
+                image: 'https://tse2.mm.bing.net/th?id=OIP.766Nqj0zOHSr_MCjUPOw7QHaFj&pid=Api&P=0&h=220', 
+                description: 'Best Seller' },
+                { name: 'Nasi Goreng', category: 'rice', 
+                image: 'http://upload.wikimedia.org/wikipedia/commons/2/21/Nasi_goreng_Chinese_style.JPG', 
+                description: 'Nasi Goreng Pedas' },
+                { name: 'Roti Bakar', category: 'snack', 
+                image: 'https://img.qraved.co/v2/image/data/1506945733286-rotibalok2-x.jpg', 
+                description: 'Roti bakar dengan selai' },
+                { name: 'Pancong', category: 'snack', 
+                image: 'https://tse4.mm.bing.net/th?id=OIP.iY0aqSTiZ97ipDPgr5mT-wHaEK&pid=Api&P=0&h=220', 
+                description: 'Pancong lumer' },
+                { name: 'Ayam Goreng', category: 'sidedish', 
+                image: 'https://tse2.mm.bing.net/th?id=OIP.nBssnXNxjEOQDGt9R0OPVAHaGD&pid=Api&P=0&h=220', 
+                description: 'Ayam goreng yang renyah' },
+                { name: 'Fuyunghai', category: 'sidedish', 
+                image: 'https://tse4.mm.bing.net/th?id=OIP.sTWXEDBpvQh0JbTx7TWHYQHaEK&pid=Api&P=0&h=220', 
+                description: 'Telor dadar elit' },
+                { name: 'Es Teh', category: 'beverages', 
+                image: 'https://tse4.mm.bing.net/th?id=OIP.5TxSI1wZHVVTBXI7kt7KggHaEo&pid=Api&P=0&h=220', 
+                description: 'Es teh manis segar' },
+                { name: 'Es Jeruk', category: 'beverages', 
+                image: 'https://tse2.mm.bing.net/th?id=OIP.rMCgP4SsuwdgX57TTVNrJwHaHa&pid=Api&P=0&h=220', 
+                description: 'Es jeruk segar' },
+                {name: 'Salad Buah', category: 'healty', 
+                image: 'https://tse3.mm.bing.net/th?id=OIP.FLLXG3DOh3QLRiwGsqVeAwHaF4&pid=Api&P=0&h=220', 
+                description: 'Salad buah mantap' }
+            ];
+
+            const foodContainers = document.querySelectorAll('.food-item');
+
+        foods.forEach(food => {
+            const card = document.createElement('div');
+            card.classList.add('food-card');
+            card.innerHTML = `
+                <img src="${food.image}" alt="${food.name}">
+                <h3>${food.name}</h3>
+                <p>${food.description}</p>
+            `;
+    
+            const containerId = food.category.toLowerCase();
+            const container = document.getElementById(containerId);
+    
+            if (container) {
+                container.querySelector('.food-item').appendChild(card);
+            }
+
+            const allItemContainer = document.getElementById('all');
+            if (allItemContainer) {
+                allItemContainer.querySelector('.food-item').appendChild(card.cloneNode(true));
+            }
+        });
+    });
+    </script>
+</body>
+</html>
